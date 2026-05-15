@@ -1,87 +1,87 @@
 # ATM C/S
 
-Java socket-based ATM client/server demo with both command-line and Swing GUI clients.
+基于 Java Socket 的 ATM 客户端/服务端示例项目，同时包含命令行客户端和 Swing 图形界面客户端。
 
-## Requirements
+## 环境要求
 
-- JDK 21 or newer
-- macOS, Linux, or Windows
+- JDK 21 或更高版本
+- macOS、Linux 或 Windows
 
-## Files
+## 文件说明
 
-- `ATMServer.java`: ATM server, listens on TCP port `2525` by default.
-- `ATMClient.java`: command-line ATM client.
-- `ATMGuiClient.java`: Java Swing ATM client.
-- `users.txt`: card number and password data.
-- `balances.txt`: card number and balance data.
-- `start-atm-server.sh`: macOS/Linux server launcher.
-- `start-atm-client.sh`: macOS/Linux command-line client launcher.
-- `start-atm-gui.sh`: macOS/Linux Swing client launcher.
-- `start-atm-win.bat`: Windows server/client launcher.
-- `start-atm-gui-win.bat`: Windows Swing client launcher.
+- `ATMServer.java`：ATM 服务端，默认监听 `2525` 端口
+- `ATMClient.java`：命令行客户端
+- `ATMGuiClient.java`：Swing 图形界面客户端
+- `users.txt`：账户和密码数据
+- `balances.txt`：账户和余额数据
+- `start-atm-server.sh`：macOS/Linux 服务端启动脚本
+- `start-atm-client.sh`：macOS/Linux 命令行客户端启动脚本
+- `start-atm-gui.sh`：macOS/Linux 图形界面客户端启动脚本
+- `start-atm-win.bat`：Windows 服务端/命令行客户端启动脚本
+- `start-atm-gui-win.bat`：Windows 图形界面客户端启动脚本
 
-## Account Data
+## 账户数据
 
-Add one account per line in `users.txt`:
+在 `users.txt` 中每行添加一个账户和密码：
 
 ```text
 100001 1234
 ```
 
-Add the matching balance in `balances.txt`:
+在 `balances.txt` 中添加对应账户的余额：
 
 ```text
 100001 5000.00
 ```
 
-Restart `ATMServer` after changing account files.
+修改账户文件后，需要重启 `ATMServer` 才会生效。
 
-## Run On macOS or Linux
+## macOS 或 Linux 运行方式
 
-Start the server:
+启动服务端：
 
 ```bash
 ./start-atm-server.sh 2525
 ```
 
-Start the command-line client:
+启动命令行客户端：
 
 ```bash
 ./start-atm-client.sh 127.0.0.1 2525
 ```
 
-Start the Swing GUI client:
+启动 Swing 图形界面客户端：
 
 ```bash
 ./start-atm-gui.sh
 ```
 
-## Run On Windows
+## Windows 运行方式
 
-Start the server:
+启动服务端：
 
 ```bat
 start-atm-win.bat server 2525
 ```
 
-Start the command-line client:
+启动命令行客户端：
 
 ```bat
 start-atm-win.bat client 127.0.0.1 2525
 ```
 
-Start the Swing GUI client:
+启动 Swing 图形界面客户端：
 
 ```bat
 start-atm-gui-win.bat
 ```
 
-## LAN Connection
+## 局域网连接
 
-Run `ATMServer` on one computer, then connect from another computer in the same LAN by using the server computer's LAN IP:
+在一台电脑上运行 `ATMServer` 后，另一台同一局域网内的电脑可以通过服务端所在机器的局域网 IP 连接：
 
 ```bash
 ./start-atm-client.sh 192.168.1.10 2525
 ```
 
-or use the same host and port in the Swing GUI client.
+图形界面客户端同样填写这个 IP 和端口即可连接。
